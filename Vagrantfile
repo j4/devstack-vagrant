@@ -48,6 +48,8 @@ def configure_vm(name, vm, conf)
   end
 
   vm.provider :virtualbox do |vb|
+    vb.memory = 4096
+    vb.cpus = 2
     # you need this for openstack guests to talk to each other
     vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
     # if specified assign a static MAC address
